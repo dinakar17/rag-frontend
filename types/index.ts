@@ -7,15 +7,28 @@ export interface NavItem {
   external?: boolean
 }
 
+// export type Message = {
+//   id: string;
+//   createdAt?: Date;
+//   content: string;
+//   role: "system" | "user" | "assistant" | "function";
+//   runId?: string;
+//   sources?: Source[];
+//   name?: string;
+//   function_call?: { name: string };
+// };
+
 export type Message = {
-  id: string;
-  createdAt?: Date;
-  content: string;
-  role: "system" | "user" | "assistant" | "function";
-  runId?: string;
-  sources?: Source[];
-  name?: string;
-  function_call?: { name: string };
+  type: "apiMessage" | "userMessage"
+  message: string
+  isStreaming?: boolean
+  sourceDocs?: Document[]
+  question?: string
+}
+
+export type Source = {
+  url: string;
+  title: string;
 };
 
 // export type Message = {

@@ -20,7 +20,7 @@ const fadeIn = {
   exit: { opacity: 0, transition: { duration: 0.02 } },
 }
 
-export function AnswerCard({ question, answer, isCurrentAnswer, status }) {
+export function AnswerCard({ question, answer, isCurrentAnswer, status } : {question: string, answer: any, isCurrentAnswer: boolean, status: string}) {
   return (
     <div className=" py-10">
       <div
@@ -100,7 +100,6 @@ export function AnswerMessage({ submittedQ, isCurrentAnswer, content, error }) {
                     </code>
                   )
                 }
-  
                 return (
                   <CodeBlock
                     key={Math.random()}
@@ -112,8 +111,6 @@ export function AnswerMessage({ submittedQ, isCurrentAnswer, content, error }) {
               }
             }}
           >
-            
-
             {content}
 
           </MemoizedReactMarkdown>
