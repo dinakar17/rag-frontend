@@ -46,7 +46,7 @@ export function SearchInput({
               initial={status}
               disabled={loading}
               type="submit"
-              onClick={handleClick}
+              onClick={(e) => handleClick(e)}
               className={cn(
                 "group z-10 inline-flex items-center justify-center rounded-full bg-mauve-1 p-3 text-sm md:block",
                 "font-semibold text-mauve-12 shadow-sm ring-1 ring-inset ring-mauve-6",

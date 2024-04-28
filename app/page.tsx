@@ -16,10 +16,6 @@ export default function Home() {
           <AnimatePresence mode="wait">
             
               <div className=" flex w-full flex-col items-center ">
-                <p className="mb-3 mt-2 max-w-lg text-center text-neutral-800 dark:text-neutral-200 md:text-lg">
-                  Query and get answers related to <b>Bajaj</b>
-                </p>
-
                 <DocumentQA namespace={""} />
               </div>
           </AnimatePresence>

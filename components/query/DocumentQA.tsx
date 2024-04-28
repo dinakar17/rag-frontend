@@ -11,6 +11,7 @@ import { v4 as uuidv4 } from "uuid";
 import { applyPatch } from "@langchain/core/utils/json_patch";
 import { marked } from "marked";
 import { Document } from "langchain/document";
+import HomeDisplay from "../HomeDisplay";
 
 
 export function DocumentQA({ namespace } : {namespace: string}) {
@@ -28,7 +29,6 @@ export function DocumentQA({ namespace } : {namespace: string}) {
   const [chatHistory, setChatHistory] = useState<
     { human: string; ai: string }[]
   >([]);
-
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -193,6 +193,7 @@ export function DocumentQA({ namespace } : {namespace: string}) {
     return () => clearTimeout(timeoutId)
   }, [status])
 
+
   return (
     <section className=" container mx-1 pb-8 md:pb-10">
       <div
@@ -200,6 +201,8 @@ export function DocumentQA({ namespace } : {namespace: string}) {
       >
         <div className=" w-full max-w-4xl">
           <LayoutGroup>
+          {/* If the aiAnswer array is empty then display Homedisplay */}
+          {!aiAnswer.length && ( <HomeDisplay setUserQuestion={setUserQuestion} /> ) }
           {aiAnswer
               ? aiAnswer.map((answer, i) => {
                   const isCurrentAnswer = aiAnswer.length - 1 === i

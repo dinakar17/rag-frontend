@@ -11,10 +11,13 @@
   "dependencies": {
     "@langchain/core": "^0.1.61",
     "@microsoft/fetch-event-source": "^2.0.1",
+    "@radix-ui/colors": "^3.0.0",
     "@radix-ui/react-alert-dialog": "^1.0.5",
     "@radix-ui/react-collapsible": "^1.0.3",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-dropdown-menu": "^2.0.6",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.13",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",
@@ -31,7 +34,9 @@
     "react-use-measure": "^2.1.1",
     "remark-gfm": "^4.0.0",
     "remark-math": "^6.0.0",
-    "tailwind-merge": "^2.3.0"
+    "tailwind-merge": "^2.3.0",
+    "tailwindcss-animate": "^1.0.7",
+    "windy-radix-palette": "^2.0.0-beta.7"
   },
   "devDependencies": {
     "@types/node": "^20",

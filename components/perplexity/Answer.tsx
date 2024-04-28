@@ -22,7 +22,7 @@ const fadeIn = {
 
 export function AnswerCard({ question, answer, isCurrentAnswer, status } : {question: string, answer: any, isCurrentAnswer: boolean, status: string}) {
   return (
-    <div className=" py-10">
+    <div className="py-10">
       <div
         className={cn(
           "border-neutral-focus   rounded-xl border bg-neutral-100/50 p-4 shadow-md backdrop-blur ",
@@ -143,18 +143,19 @@ function AnimatedQuestion({ submittedQ }) {
 
 function LoadingLine() {
   return (
-    <div className="flex min-w-full animate-pulse px-4 py-5 sm:px-6">
+    <div className="flex w-full animate-pulse px-4 py-5 sm:px-6">
       <div className="flex grow space-x-3">
-        <div className="min-w-0 flex-1">
+        <div className="flex-1">
           <div className="space-y-4 pt-4">
             <div className="grid grid-cols-3 gap-4">
-              <div className="col-span-2 h-2 rounded bg-mauve-4"></div>
-              <div className="col-span-1 h-2 rounded bg-mauve-4"></div>
+              <div className="col-span-2 h-2 rounded bg-gray-300"></div>
+              <div className="col-span-1 h-2 rounded bg-gray-300"></div>
             </div>
-            <div className="h-2 rounded bg-mauve-4"></div>
+            <div className="h-2 rounded bg-gray-300"></div>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
+
