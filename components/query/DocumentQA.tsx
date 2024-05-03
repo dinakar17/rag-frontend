@@ -13,6 +13,8 @@ import { marked } from "marked";
 import { Document } from "langchain/document";
 import HomeDisplay from "../HomeDisplay";
 
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
+
 
 export function DocumentQA({ namespace } : {namespace: string}) {
   const {
@@ -66,7 +68,7 @@ export function DocumentQA({ namespace } : {namespace: string}) {
       let streamedResponse: Record<string, any> = {};
 
       const remoteChain = new RemoteRunnable({
-        url: "https://rag-langserve-4w4j3ngxqa-uc.a.run.app" + "/chat",
+        url: BACKEND_URL + "/chat",
         options: {
           timeout: 60000,
         },
