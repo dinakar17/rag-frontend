@@ -6,9 +6,9 @@ import { cn } from '@/lib/utils';
 
 type SearchProps = {
   value: string;
-  status: string;
+  status: string; // Define the possible values for status
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  handleClick: (e: React.FormEvent<HTMLFormElement>) => void;
+  handleClick: (e: React.MouseEvent<HTMLButtonElement> | React.FormEvent<HTMLFormElement>) => void;
   loading: boolean;
   placeholder: string;
   className?: string;
@@ -26,14 +26,14 @@ export function SearchInput({
   function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
-      return handleClick(e);
+      handleClick(e as unknown as React.MouseEvent<HTMLButtonElement>);
     }
   }
 
   return (
     <div className="flex w-full max-w-lg items-center space-x-2">
       <InputButton
-        className={cn('relative  py-5 pr-10  ', className)}
+        className={cn('relative py-5 pr-10', className)}
         value={value}
         onKeyDown={handleKeyDown}
         onChange={handleChange}
@@ -47,7 +47,7 @@ export function SearchInput({
               initial={status}
               disabled={loading}
               type="submit"
-              onClick={(e) => handleClick(e)}
+              onClick={(e) => handleClick(e as unknown as React.MouseEvent<HTMLButtonElement>)}
               className={cn(
                 'bg-mauve-1 group z-10 inline-flex items-center justify-center rounded-full p-3 text-sm md:block',
                 'text-mauve-12 ring-mauve-6 font-semibold shadow-sm ring-1 ring-inset',
@@ -58,7 +58,7 @@ export function SearchInput({
             >
               <AnimatePresence>
                 {loading ? (
-                  <Icons.loadingSpinner className="-ml-0.5 h-7 w-7 animate-spin text-teal-500/80 group-hover:text-teal-500  dark:text-teal-400 dark:group-hover:text-teal-300" />
+                  <Icons.loadingSpinner className="-ml-0.5 h-7 w-7 animate-spin text-teal-500/80 group-hover:text-teal-500 dark:text-teal-400 dark:group-hover:text-teal-300" />
                 ) : status === 'typing' || status === 'idle' ? (
                   <Icons.plus className="-ml-0.5 h-7 w-7" aria-hidden="true" />
                 ) : (

@@ -22,7 +22,7 @@ type FileChatHook = {
   generateAnswer: (e: any) => Promise<void>;
 };
 
-export function usePineconeQuery(namespace): FileChatHook {
+export function usePineconeQuery(namespace: string): FileChatHook {
   const [userQuestion, setUserQuestion] = useState('');
   const [status, setStatus] = useState('idle');
 

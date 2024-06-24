@@ -28,7 +28,9 @@ function DocumentQA({ namespace }: { namespace: string }) {
     return setUserQuestion(e.target.value);
   }
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (
+    e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>
+  ) => {
     e.preventDefault();
     if (userQuestion === '') {
       alert('Please enter a question');

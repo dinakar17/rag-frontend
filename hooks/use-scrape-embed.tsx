@@ -2,7 +2,10 @@ import useSWRMutation from 'swr/mutation';
 
 import { toast } from '@/hooks/use-toast';
 
-async function sendRequest(url, { arg }: { arg: { urls: string[]; namespace: string } }) {
+async function sendRequest(
+  url: string | URL | Request,
+  { arg }: { arg: { urls: string[]; namespace: string } }
+) {
   const { urls, namespace } = arg;
 
   const response = await fetch(url, {

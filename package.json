@@ -6,12 +6,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "next lint && tsc --noEmit",
     "lint:fix": "next lint --fix",
     "lint:strict": "next lint '*/**/*.{js,jsx,ts,tsx}'",
     "eslint": "eslint */**/*.{js,jsx,ts,tsx}",
     "prettier": "prettier --write */**/*.{js,jsx,json,ts,tsx,scss,css,md}",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "check-types": "tsc --noEmit",
+    "precheck": "git add . && lint-staged && git reset"
   },
   "dependencies": {
     "@langchain/core": "^0.1.61",
@@ -61,6 +63,7 @@
     "react-use-measure": "^2.1.1",
     "remark-gfm": "^4.0.0",
     "remark-math": "^6.0.0",
+    "swr": "^2.2.5",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
     "windy-radix-palette": "^2.0.0-beta.7"
