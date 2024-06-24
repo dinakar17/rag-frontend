@@ -1,16 +1,23 @@
-import { AnimatePresence, MotionConfig, motion } from "framer-motion"
-import useMeasure from "react-use-measure"
+import { AnimatePresence, MotionConfig, motion } from 'framer-motion';
+import useMeasure from 'react-use-measure';
 
-let transition = { type: "ease", ease: "easeInOut", duration: 0.4 }
+const transition = { type: 'ease', ease: 'easeInOut', duration: 0.4 };
 
-export function ResizablePanel({ content, children }) {
-  let [ref, bounds] = useMeasure()
+export function ResizablePanel({
+  content,
+  children,
+}: {
+  content: boolean;
+  children: React.ReactNode;
+}) {
+  const [ref, bounds] = useMeasure();
 
   return (
     <MotionConfig transition={transition}>
       <motion.div
+        // @ts-expect-error - This is a valid prop
         animate={{ height: bounds.height > 0 ? bounds.height : null }}
-        transition={{ type: "spring", bounce: 0.1, duration: 0.3 }}
+        transition={{ type: 'spring', bounce: 0.1, duration: 0.3 }}
       >
         <div ref={ref}>
           <AnimatePresence mode="popLayout">
@@ -42,5 +49,5 @@ export function ResizablePanel({ content, children }) {
         </div>
       </motion.div>
     </MotionConfig>
-  )
+  );
 }

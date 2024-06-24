@@ -1,21 +1,21 @@
-import { NavItem } from "@/types"
+import { NavItem } from '@/types';
 
 interface SiteConfig {
-  name: string
-  description: string
-  mainNav: NavItem[]
+  name: string;
+  description: string;
+  mainNav: NavItem[];
   links: {
-    twitter: string
-    github: string
-  }
+    twitter: string;
+    github: string;
+  };
 }
 
 export const siteConfig: SiteConfig = {
-  name: "BajajRAG",
-  description: "Unlock the secrets of any website",
+  name: 'BajajRAG',
+  description: 'Unlock the secrets of any website',
   mainNav: [],
   links: {
-    twitter: "https://twitter.com/",
-    github: "https://github.com/",
+    twitter: 'https://twitter.com/',
+    github: 'https://github.com/',
   },
-}
+};

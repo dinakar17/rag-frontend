@@ -1,4 +1,4 @@
-import { motion } from "framer-motion"
+import { motion } from 'framer-motion';
 import {
   ArrowDownRight,
   Globe,
@@ -13,25 +13,26 @@ import {
   SunMedium,
   Twitter,
   UploadCloud,
-} from "lucide-react"
-import { cn } from "@/lib/utils"
+} from 'lucide-react';
 
-export type Icon = LucideIcon
+import { cn } from '@/lib/utils';
 
-let x = 1
-const t = (v : number) => v * x
+export type Icon = typeof LucideIcon;
 
-let checkIconTransition = {
-  ease: "easeOut",
-  type: "tween",
+const x = 1;
+const t = (v: number) => v * x;
+
+const checkIconTransition = {
+  ease: 'easeOut',
+  type: 'tween',
   delay: t(0.2),
   duration: t(0.3),
-}
-let checkIconVariants = {
+};
+const checkIconVariants = {
   complete: {
     pathLength: [0, 1],
   },
-}
+};
 
 export const Icons = {
   sun: SunMedium,
@@ -72,12 +73,12 @@ export const Icons = {
       />
     </svg>
   ),
-  check: ({ className, ...props }) => (
+  check: ({ className, ...props }: { className: string }) => (
     <svg
       fill="none"
       viewBox="0 0 24 24"
       className={cn(
-        "-ml-0.5 h-7 w-7 text-teal-400/80 group-hover:text-teal-500  dark:text-teal-400 dark:group-hover:text-teal-300",
+        '-ml-0.5 h-7 w-7 text-teal-400/80 group-hover:text-teal-500  dark:text-teal-400 dark:group-hover:text-teal-300',
         className
       )}
       stroke="currentColor"
@@ -93,12 +94,12 @@ export const Icons = {
       />
     </svg>
   ),
-  plus: ({ className, ...props }) => (
+  plus: ({ className, ...props }: { className: string }) => (
     <svg
       {...props}
       xmlns="http://www.w3.org/2000/svg"
       className={cn(
-        "-ml-0.5 h-7 w-7 text-teal-400/80 group-hover:text-teal-500  dark:text-teal-400 dark:group-hover:text-teal-300",
+        '-ml-0.5 h-7 w-7 text-teal-400/80 group-hover:text-teal-500  dark:text-teal-400 dark:group-hover:text-teal-300',
         className
       )}
       width="24"
@@ -128,4 +129,4 @@ export const Icons = {
       ></motion.line>
     </svg>
   ),
-}
+};

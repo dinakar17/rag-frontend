@@ -1,17 +1,18 @@
-import { AnimatePresence, motion } from "framer-motion"
-import { cn } from "@/lib/utils"
-import { Icons } from "@/components/icons"
-import { InputButton } from "@/components/ui/input"
+import { AnimatePresence, motion } from 'framer-motion';
+
+import { Icons } from '@/components/icons';
+import { InputButton } from '@/components/ui/input';
+import { cn } from '@/lib/utils';
 
 type SearchProps = {
-  value: string
-  status: string
-  handleChange: (e : React.ChangeEvent<HTMLInputElement>) => void
-  handleClick: (e : React.FormEvent<HTMLFormElement>) => void
-  loading: boolean
-  placeholder: string
-  className?: string
-}
+  value: string;
+  status: string;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleClick: (e: React.FormEvent<HTMLFormElement>) => void;
+  loading: boolean;
+  placeholder: string;
+  className?: string;
+};
 
 export function SearchInput({
   value,
@@ -22,17 +23,17 @@ export function SearchInput({
   placeholder,
   className,
 }: SearchProps) {
-  function handleKeyDown(e : React.KeyboardEvent<HTMLInputElement>) {
-    if (e.key === "Enter" && !e.shiftKey) {
-      e.preventDefault()
-      return handleClick(e)
+  function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      return handleClick(e);
     }
   }
 
   return (
     <div className="flex w-full max-w-lg items-center space-x-2">
       <InputButton
-        className={cn("relative  py-5 pr-10  ", className)}
+        className={cn('relative  py-5 pr-10  ', className)}
         value={value}
         onKeyDown={handleKeyDown}
         onChange={handleChange}
@@ -48,17 +49,17 @@ export function SearchInput({
               type="submit"
               onClick={(e) => handleClick(e)}
               className={cn(
-                "group z-10 inline-flex items-center justify-center rounded-full bg-mauve-1 p-3 text-sm md:block",
-                "font-semibold text-mauve-12 shadow-sm ring-1 ring-inset ring-mauve-6",
-                "hover:scale-105 hover:shadow hover:ring-inset hover:ring-mauve-7 hover:transition hover:duration-300",
-                "focus:scale-105 focus:shadow focus:outline-none focus:ring-inset focus:ring-mauve-8 focus:transition focus:duration-300",
-                "dark:ring-mauve-6 dark:hover:shadow-[#1B1B25] dark:hover:ring-mauve-8"
+                'bg-mauve-1 group z-10 inline-flex items-center justify-center rounded-full p-3 text-sm md:block',
+                'text-mauve-12 ring-mauve-6 font-semibold shadow-sm ring-1 ring-inset',
+                'hover:ring-mauve-7 hover:scale-105 hover:shadow hover:ring-inset hover:transition hover:duration-300',
+                'focus:ring-mauve-8 focus:scale-105 focus:shadow focus:outline-none focus:ring-inset focus:transition focus:duration-300',
+                'dark:ring-mauve-6 dark:hover:ring-mauve-8 dark:hover:shadow-[#1B1B25]'
               )}
             >
               <AnimatePresence>
                 {loading ? (
                   <Icons.loadingSpinner className="-ml-0.5 h-7 w-7 animate-spin text-teal-500/80 group-hover:text-teal-500  dark:text-teal-400 dark:group-hover:text-teal-300" />
-                ) : status === "typing" || status === "idle" ? (
+                ) : status === 'typing' || status === 'idle' ? (
                   <Icons.plus className="-ml-0.5 h-7 w-7" aria-hidden="true" />
                 ) : (
                   <Icons.check className="-ml-0.5 h-7 w-7" />
@@ -69,5 +70,5 @@ export function SearchInput({
         </div>
       </InputButton>
     </div>
-  )
+  );
 }
